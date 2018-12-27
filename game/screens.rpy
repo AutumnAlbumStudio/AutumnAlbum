@@ -203,7 +203,13 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            if i.action:
+                if " (disabled)" in i.caption:
+                    textbutton i.caption.replace(" (disabled)", "")
+                else:
+                    textbutton i.caption action i.action
+            else:
+                textbutton i.caption
 
 
 ## 若为True，菜单内的叙述会使用旁白 (narrator) 角色。否则，叙述会显示为菜单内的
