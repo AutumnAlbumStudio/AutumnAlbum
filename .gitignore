@@ -1,12 +1,8 @@
+game/saves
+game/cache
 log.txt
 traceback.txt
 errors.txt
 *.rpyb
 *.rpyc
-*.ttf
-*.otf
-game/saves
-game/cache
-game/images/bg/bg sjtu eastgate.png
-game/gui/main_menu.png
 *.rpymc
