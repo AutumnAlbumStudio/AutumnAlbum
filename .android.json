@@ -1,0 +1,1 @@
+{"layout": null, "package": "ml.umji.autumnalbum", "include_pil": false, "numeric_version": "0", "expansion": false, "name": "Autumn Album", "update_always": true, "source": false, "icon_name": "Autumn Album", "version": "0.0.0", "update_icons": true, "permissions": ["VIBRATE"], "include_sqlite": false, "store": "none", "orientation": "sensorLandscape"}
