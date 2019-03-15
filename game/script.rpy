@@ -1,23 +1,54 @@
 ﻿define qiu = Character('秋小姐', color="#c8ffc8")
 define sklt = Character('Scarlet', color="#c8c8ff")
+define bmm = Character('bmm', color="#c8ffff")
+define yaa = Character('yaa', color="#c8ffff")
 
 label start:
     scene bg sjtu eastgate
     with fade
     "开学了，又到了秋色宜人的季节。"
     show qiu back with dissolve
-    "早早被钦定为临召的秋小姐来到了SJTU。"
+    "早早被钦定为临时召集人（临召）的秋小姐来到了SJTU。"
     qiu "我就是在这样的风景环绕之中成长起来的，这里的秋天格外秀美。"
     qiu "童年时，我经常在高贵的THU里和学长学姐们谈笑风生，对这所SJTU充斥着鄙夷。"
     qiu "初中以来，我无数次设想过我未来在THU中的快乐生活。"
     qiu "却不曾想到在领军计划与高考中我大意失荆州……"
     qiu "也罢，不知道这里的同学会和THU的同学们有多大的差距呢？"
-    "正在秋小姐回忆过往之时，迎面走来了一位什么都不会的魔法少女。"
-    show qiu back:
+
+label tmp_call_up_reference:
+    scene bg lbl front
+    with fade
+    "马上要举行的是在lbl的临召的会议，秋小姐自然是早早到达。"
+    show qiu back with dissolve:
         ease 0.5 left
-    show scarlet happy at right with dissolve
-    "原来是早在 QQ 群中结识的 Scarlet。"
-    sklt "嗯呣……你是否可以……"
+    "走进会议厅，已经有不少人在里面等待。"
+    default sit_beside_desk = False
+    menu:
+        "会议室里仍有不少空位，秋小姐决定坐在。。。"
+        "左侧靠窗的座位":
+            qiu "这里采光还挺好的。"
+        "会议桌旁的座位":
+            qiu "坐在会议桌旁才有开会的感觉啊。"
+            $ sit_beside_desk = True
+        "角落靠门的座位":
+            qiu "方便我随时有事出去，毕竟我太忙了。"
+    "选好座位坐定，秋小姐打开电脑静静等待会议的开始。"
+    "就在会议开始前几分钟，一个身影出现在了会议室门口。"
+    "此时会议室内的座位已经所剩无几了。"
+    if not sit_beside_desk:
+        "那道身影走到了秋小姐身旁，指了指秋小姐一旁的空座"
+        show bmm with dissolve:
+            ease 0.5 right
+        "???" "请问一下这里有人坐了吗？"
+        qiu "还没人呢，你来坐吧。"
+        qiu "对了，你叫什么名字啊？"
+        bmm "啊，我叫bmm，是6班的临召。"
+    else:
+        "这道身影挑了一个靠墙的位置坐下了。"
+    # show sklt happy at right with dissolve
+    # "原来是早在 QQ 群中结识的 Scarlet。"
+    # "可惜此时的Scarlet还未识得秋小姐尊容。"
+    "临召的会议和工作结束了，接下来就是要正式开学了。"
 
 label courseChosing:
     scene bg painted ji
@@ -26,6 +57,7 @@ label courseChosing:
     "VV186(Honors Mathmatics) 是最难的数学，像秋小姐这样水平的学生一定要选上。"
     "至于 VG101(Intro to Programming) 和 vg100(Intro to Engineering) , 熟悉的学长学姐们都推荐精通programming的秋小姐先学VG100。"
     "剩下的 VC210(Chemistry) 以及 VY100(Academic Writing) 应该很轻松就能搞定。。。"
+    # 小飞机动画
     window hide
     show ani plane1
     pause 0.05
@@ -63,7 +95,8 @@ label courseChosing:
     pause 0.05
     show ani plane18
     pause 0.05
-    window auto
+    hide ani
+    window show
     qiu "等小飞机转进去的时候好多课程的已选人数已经快要达到人数上限了。。。"
     python:
         REQUIRED_MIN_CREDIT = 16
