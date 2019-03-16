@@ -4,6 +4,9 @@ define bmm = Character('bmm', color="#c8ffff")
 define yaa = Character('yaa', color="#c8ffff")
 
 label start:
+
+    show screen favor_icon
+
     scene bg sjtu eastgate
     with fade
     "开学了，又到了秋色宜人的季节。"
